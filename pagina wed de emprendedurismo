@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background: #090a13;
+        color: white;
+    }
+
+    header {
+        min-height: 480px;
+        background:
+            linear-gradient(110deg,
+                rgba(232, 91, 158, .85),
+                rgba(124, 49, 164, .65),
+                rgba(7, 20, 62, .95)),
+            url("fondo.jpg");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 60px 10%;
+    }
+
+    header h1 {
+        font-size: 70px;
+        color: white;
+        text-shadow: 0 0 15px rgba(255, 120, 200, .7);
+        margin-bottom: 15px;
+    }
+
+    header p {
+        font-size: 25px;
+        max-width: 600px;
+        line-height: 1.5;
+    }
+
+    nav {
+        background:
+            linear-gradient(90deg,
+                #bd4b91,
+                #5b267e,
+                #08143c);
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 35px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, .4);
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 17px;
+        font-weight: bold;
+        transition: .3s;
+    }
+
+    nav a:hover {
+        color: #ff8fc7;
+        text-shadow: 0 0 10px #ff5fae;
+    }
+
+    section {
+        margin: 25px auto;
+        padding: 40px;
+        width: 90%;
+        max-width: 1200px;
+        background:
+            linear-gradient(135deg,
+                rgba(126, 45, 130, .35),
+                rgba(8, 22, 65, .8));
+        border: 1px solid rgba(255, 105, 190, .25);
+        border-radius: 20px;
+        box-shadow:
+            0 10px 35px rgba(0, 0, 0, .4),
+            inset 0 0 30px rgba(180, 60, 180, .08);
+    }
+
+    h2 {
+        color: #ff82c1;
+        font-size: 32px;
+        margin-bottom: 20px;
+        text-shadow: 0 0 10px rgba(255, 80, 180, .4);
+    }
+
+    p {
+        font-size: 17px;
+        line-height: 1.7;
+        color: #f2eef5;
+    }
+
+    .logo {
+        width: 220px;
+        margin: 20px;
+    }
+
+    .contenedor {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        flex-wrap: wrap;
+    }
+
+    .tarjeta {
+        width: 270px;
+        background:
+            linear-gradient(145deg,
+                rgba(102, 40, 115, .45),
+                rgba(8, 20, 57, .9));
+        border: 1px solid rgba(218, 83, 171, .35);
+        padding: 25px;
+        border-radius: 18px;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, .3);
+        transition: .3s;
+    }
+
+    .tarjeta:hover {
+        transform: translateY(-7px);
+        border-color: #ec70b4;
+        box-shadow: 0 0 25px rgba(220, 75, 170, .3);
+    }
+
+    .tarjeta h3 {
+        color: #ff83c4;
+        margin-bottom: 15px;
+        font-size: 21px;
+    }
+
+    .tarjeta p {
+        color: #eeeeee;
+    }
+
+    button {
+        background:
+            linear-gradient(90deg,
+                #ed65ad,
+                #7c35c7);
+        color: white;
+        border: none;
+        padding: 13px 25px;
+        border-radius: 25px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(180, 60, 170, .3);
+        transition: .3s;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(240, 100, 190, .6);
+    }
+
+    a {
+        color: #ff83c4;
+    }
+
+    footer {
+        background:
+            linear-gradient(90deg,
+                #c64b91,
+                #612679,
+                #071538);
+        padding: 25px;
+        text-align: center;
+        color: white;
+        margin-top: 40px;
+    }
+
+    footer p {
+        color: white;
+    }
+
+    #mision-vision {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    #mision-vision > section {
+        flex: 1;
+        margin: 0;
+    }
+
+    .carrusel {
+        position: relative;
+        width: 75%;
+        max-width: 520px;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        margin: 0 auto;
+    }
+
+    .slides {
+        display: flex;
+        width: 500%;
+        animation: slide 20s infinite;
+    }
+
+    .slides img {
+        width: 20%;
+        height: 260px;
+        object-fit: cover;
+        flex-shrink: 0;
+    }
+
+    @keyframes slide {
+        0%, 15% {
+            transform: translateX(0%);
+        }
+
+        20%, 35% {
+            transform: translateX(-20%);
+        }
+
+        40%, 55% {
+            transform: translateX(-40%);
+        }
+
+        60%, 75% {
+            transform: translateX(-60%);
+        }
+
+        80%, 95% {
+            transform: translateX(-80%);
+        }
+
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+    @media(max-width:768px) {
+        header {
+            min-height: 400px;
+            padding: 40px 25px;
+            align-items: center;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 45px;
+        }
+
+        header p {
+            font-size: 20px;
+        }
+
+        nav {
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 15px;
+        }
+
+        nav a {
+            font-size: 14px;
+            margin: 5px;
+        }
+
+        section {
+            width: 94%;
+            padding: 25px;
+            margin: 20px auto;
+        }
+
+        h2 {
+            font-size: 27px;
+        }
+
+        .tarjeta {
+            width: 100%;
+        }
+
+        .logo {
+            width: 180px;
+        }
+
+        .carrusel {
+            width: 100%;
+        }
+
+        .slides img {
+            height: 180px;
+        }
+    }
+</style>
+
+<body>
+    <header>
+        <h1>LOCKSY TECH</h1>
+        <p>Seguridad inteligente para hogares, negocios y empresas</p>
+    </header>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#Mision y Vision">Mision y Vision</a>
+        <a href="#Valores">Valores</a>
+        <a href="#Principios">Principios</a>
+        <a href="#Noticias">Noticias</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <section id="inicio">
+        <center>
+            <img src="logo.png.jpeg" class="logo">
+        </center>
+
+        <h2>Bienvenido a Locksy Tech</h2>
+        <p>
+            Locksy Tech es una empresa que se dedicada al desarrollo de
+            soluciones a problemas de seguridad mediante la tecnologia ofreciendo
+            soluciones automatizadas con tecnología avanzada de la mas alta calidad.
+        </p>
+
+        <h2>Nuestro objetivo</h2>
+        <p>
+            Nuestro objetivo como empresa es comercializar nuestra manija
+            ofreciendo un producto para mejorar la seguridad de viviendas,
+            oficinas, negocios y empresas mediante nuestros productos
+            innovadores y fáciles de comprender.
+
+            Buscamos ofrecer una alternativa moderna a las cerraduras
+            tradicionales utilizando tecnología biométrica y sistemas
+            inteligentes.
+        </p>
+    </section>
+
+    <section id="Mision y Vision">
+        <h2>Misión</h2>
+        <p>
+            Desarrollar una solución tecnológica inteligente conectada
+            a una manija de puerta que permita mejorar la seguridad,
+            brindando tranquilidad y control de acceso a nuestros clientes.
+        </p>
+    </section>
+
+    <section>
+        <h2>Visión</h2>
+        <p>
+            Ser una empresa reconocida en seguridad tecnológica,
+            ofreciendo productos innovadores, confiables y accesibles
+            para proteger hogares y negocios.
+        </p>
+    </section>
+
+    <section id="Valores">
+        <h2>Nuestros Valores</h2>
+        <div class="contenedor">
+            <div class="tarjeta">
+                <h3>Responsabilidad</h3>
+                <p>Compromiso con nuestros clientes.</p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>Innovación</h3>
+                <p>Crear nuevas soluciones tecnológicas.</p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>Integridad</h3>
+                <p>Trabajar con respeto y transparencia.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="Principios">
+        <h2>Nuestros Principios</h2>
+        <div class="contenedor">
+            <div class="tarjeta">
+                <h3>Disciplina</h3>
+                <p>Compromiso con nuestros clientes.</p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>Confidencialidad</h3>
+                <p>Crear nuevas soluciones tecnológicas.</p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>Excelencia</h3>
+                <p>Trabajar con respeto y transparencia.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="Noticias">
+        <h2>Noticias</h2>
+        <div class="carrusel">
+            <div class="slides">
+                <img src="noticia1.jpeg" alt="Noticia 1">
+                <img src="noticia2.jpeg" alt="Noticia 2">
+                <img src="noticia3.jpeg" alt="Noticia 3">
+                <img src="noticia4.jpeg" alt="Noticia 4">
+                <img src="noticia5.jpeg" alt="Noticia 5">
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <div class="contenedor">
+            <div class="tarjeta">
+                <h3>Correo</h3>
+                <p>locksytechnologyssupport
+                    @gmail.com</p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>Teléfonos</h3>
+                <p>
+                    6032-7930
+                 
+                </p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>Instagram</h3>
+                <p>
+                    Síguenos en nuestras redes
+                    <br><br>
+                    <a href="https://www.instagram.com/locksytech?igsh=MXRpM3l1eWVsbnFncg==" target="_blank">
+                        <button>Visitar Instagram</button>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 LOCKSY TECH | Seguridad Inteligente</p>
+    </footer>
+</body>
+</html>
